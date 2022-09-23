@@ -9,7 +9,7 @@ This script in Python (version 3.6 and later), and has no external dependencies.
 * The width of the survey grid.
 * The starting X value of the leftmost sensor.
 
-This script is unit agnostic. Most likely the width of your cart track and the width of your survey grid are in meters, but since units aren’t the measurements could be in feet or yards or cubits to yield the same results. Mixed measurement units, however, are not possible.
+This script is unit agnostic. Most likely the width of your cart track and the width of your survey grid are in meters, but since units aren’t specified, the measurements could be in feet or yards or cubits to yield the same results. Mixed measurement units, however, are not possible.
 
 The script also assumes that you will be walking transects across the grid square in a zig-zag fashion from left to right (as the Sensys data collection software is designed). Typically, this would be starting in the southwest corner of the grid square and walking northward for the first transect.
 
