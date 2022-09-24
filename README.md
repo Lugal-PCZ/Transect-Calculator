@@ -2,7 +2,7 @@
 The Transect Calculator is a simple script that outputs the number of transects, direction of each transect, and locations of the first sensor, centerline, and last sensor along the baseline of a rectangular survey unit. This script was designed to assist in planning the magnetometry survey of the fall 2022 season of the [Lagash Archaeological Project](https://web.sas.upenn.edu/lagash/), which uses a [Sensys MXPDA](https://sensys2.kora-media.de/products/mxpda/) cart-based sensor array. There is no reason, however, that it cannot be used to calculate the transects of any other system that collects data in a zig-zag pattern across a rectangular survey unit.
 
 # Usage
-This script in Python (version 3.6 and later), and has no external dependencies. It can be run with ```python3 transect_calculator.py```. You will be promted to enter 4 pieces of information:
+This script in Python (version 3.6 and later), and has no external dependencies. It can be run with ```python3 transect_calculator.py```. You will be promted to enter 4 measurements:
 
 * The number of sensors in the array.
 * The overall width of the sensor array.
