@@ -4,12 +4,11 @@ default_gridwidth = 50
 default_startx = 0
 
 
-class highlight:
-    def cyan(thetext):
-        return f"\033[1m\033[36m{thetext}\033[0m"
+def highlight_cyan(thetext):
+    return f"\033[1m\033[36m{thetext}\033[0m"
 
-    def red(thetext):
-        return f"\033[1m\033[31m{thetext}\033[0m"
+def highlight_red(thetext):
+    return f"\033[1m\033[31m{thetext}\033[0m"
 
 
 # Input the physical characteristics of the sensor array.
@@ -18,36 +17,32 @@ numsensors = input(
 )
 if numsensors == "":
     numsensors = default_numsensors
-else:
-    numsensors = int(numsensors)
+numsensors = int(numsensors)
 
 trackwidth = input(
     f"What is the overall width of your sensor array, from the first sensor to the last one? [{default_trackwidth}] "
 )
 if trackwidth == "":
     trackwidth = default_trackwidth
-else:
-    trackwidth = int(trackwidth)
+trackwidth = int(trackwidth)
 
 
 # Input the width and starting coordinate of the grid.
 gridwidth = input(f"How wide is your survey grid? [{default_gridwidth}] ")
 if gridwidth == "":
     gridwidth = default_gridwidth
-else:
-    gridwidth = int(gridwidth)
+gridwidth = int(gridwidth)
 
 startx = input(
     f"What is the starting X value of your leftmost sensor? [{default_startx}] "
 )
 if startx == "":
     startx = default_startx
-else:
-    startx = int(startx)
+startx = int(startx)
 
 
 def showtransects():
-    directions = [highlight.red("back"), highlight.cyan("away")]
+    directions = [highlight_red("back"), highlight_cyan("away")]
     transectnumber = 1
     closestsensor = startx
     print(f"\n{'-'*37}\nNumber of Sensors: {numsensors}")
@@ -72,17 +67,17 @@ def showtransects():
             centerline = (closestsensor + farthestsensor) / 2
             if transectdirection == directions[0]:
                 print(
-                    f"{transectnumber} ({transectdirection}):\t{farthestsensor:.2f}\t{highlight.red(f'{centerline:.2f}')}\t{closestsensor:.2f}"
+                    f"{transectnumber} ({transectdirection}):\t{farthestsensor:.2f}\t{highlight_red(f'{centerline:.2f}')}\t{closestsensor:.2f}"
                 )
             else:
                 print(
-                    f"{transectnumber} ({transectdirection}):\t{closestsensor:.2f}\t{highlight.cyan(f'{centerline:.2f}')}\t{farthestsensor:.2f}"
+                    f"{transectnumber} ({transectdirection}):\t{closestsensor:.2f}\t{highlight_cyan(f'{centerline:.2f}')}\t{farthestsensor:.2f}"
                 )
             transectnumber += 1
             closestsensor = farthestsensor + spacing
     if gridwidth % numsensors:
         print(
-            f"\n>>> {highlight.red('WARNING')} <<<\nThe indicated grid width ({gridwidth}) is not evenly divisible by the number of sensors ({numsensors})."
+            f"\n>>> {highlight_red('WARNING')} <<<\nThe indicated grid width ({gridwidth}) is not evenly divisible by the number of sensors ({numsensors})."
         )
         print(
             "If you don’t modify your grid or your sensor array to correct this, your survey will have gaps.\n"
